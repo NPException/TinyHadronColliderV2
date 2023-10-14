@@ -1,26 +1,33 @@
+This fork of the amazing "Tiny Hadron Collider" by Matt Hurtado now serves as a small
+example on how to integrate the [babashka](https://babashka.org) based build system from
+NPException's [Playdate App Template](https://github.com/NPException/playdate-app-template).
+
+The only necessary change to the project was to add the [bb.edn](bb.edn) file.
+Now, if you have babashka installed you can build the project, run it in the simulator,
+or create a distribution-ready `.pdx.zip` of it by using any the following commands:
+
+```bash
+# just build the app (for example to have the Playdate compiler check for some errors)
+bb build
+```
+```bash
+# build the app and start it in the Playdate simulator
+bb build-and-run
+```
+```bash
+# create a .pdx.zip file ready for distribution on itch.io (or anywhere else)
+bb build-release
+```
+
+After copying over the [GitHub workflow folder](.github) too, this project now has automated
+release builds too: ![Automated Release Badge](https://github.com/NPException/TinyHadronColliderV2/actions/workflows/auto-release.yml/badge.svg)
+
 # Tiny Hadron Collider
 <img src="https://i.imgur.com/v7ULMUu.gif" width="400" height="240" />
 
 ### A very small idler for the PlayDate
 
 ---
-
-# Configuration:  
-1. **Unlock** `Build and Run (Simulator).ps1` file if it's locked: open properties and click unlock in the bottom of the window.  
-2. If you've installed Playdate SDK to the default path (Documents folder) then just **run** `ADD_ENV_VARIABLE.cmd` to add env variables:  
-    * PLAYDATE_SDK_PATH to Playdate SDK
-    * Adds Playdate SDK's bin folder to PATH (if it is not already added) to create `pdc` shortcut  
-
-    **!!!** If you've changed default path - edit 6th line in `ADD_ENV_VARIABLE.cmd`, then run it.  
-    `set SDKPATH="YOUR CUSTOM SDK PATH HERE"`
-    This should be done only once, you need to restart VSCode after this.  
-3. Open PowerShell and change execution policy to RemoteSigned, so you can run closeSim.ps1 without admin rights:  
-    Enter `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser` into PowerShell then hit `Y`.
-4. Open template folder with VSCode, **install recomended extensions** (popup will show in the lower right corner): `Lua`, `Lua Plus`. Then restart VSCode.  
-5. If you want to change "build and run" key (default is Ctrl+Shift+B):  
-    * **Ctrl + K, Ctrl + S**  
-    * Change keybind for `Tasks: Run Build Task` (I've changed to **F5**)  
-6. Your can find your `main.lua` file inside `source` folder. Press your "Run Build Task" button, you should see "Template" text in playdate simulator.  
 
 # Requirements
 Tiny Hadron Collider runs using the following modules:
